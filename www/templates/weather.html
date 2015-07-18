@@ -1,0 +1,21 @@
+<ion-view view-title="Weather">
+  <ion-content>
+    <label class="item item-input">
+      <input type="text" placeholder="Zip Code" ng-model="input.zipCode">
+    </label>
+    <button class="button button-full button-positive" ng-click="addZipCode()">
+      Add Zip Code
+    </button>
+    <ion-list>
+      <ion-item ng-repeat="weather in cities">
+        <div style="float: left;">
+          {{weather.name}}
+        </div>
+        <div style="float: right;">
+          {{weather.main.temp}} °F
+        </div>
+        <ion-option-button class="button-balanced" ng-click="refresh(weather.zipCode, $index)">Refresh</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
